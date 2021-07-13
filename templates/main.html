@@ -1,130 +1,409 @@
-
-
-
-<!-- This is GUI for Breast Cancer Detection Application Using Machine Learning Classifer -->
-
 <!DOCTYPE html>
-<html >
+<html>
 <head>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>ML API</title>
-
-  <style>
-    body {
-      background-color:white;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: cover;
-	  width:100%;
-    }
-
-    /* CSS code for button */
-    .button_css {
-    color: #494949 !important;
-    text-transform: uppercase;
-    text-decoration: none;
-    background: #ffffff;
-    padding: 20px;
-    border: 4px solid #494949 !important;
-    display: inline-block;
-    transition: all 0.4s ease 0s;
-    }
-    
-    .button_css:hover {
-    color: #ffffff !important;
-    background: #f6b93b;
-    border-color: #f6b93b !important;
-    transition: all 0.4s ease 0s;
-    }
-.bc{
-font-color:white;
-font-family: "Times New Roman", Times, serif;
+<meta charset="UTF-8">
+<title>liver Disease Prediction</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+</head>
+<body>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
-.heading {
-  background-color: #A52260;
-  border: solid 1px #A52260;
-  height: 200px;
-  width:100%
+body{
+  background: #fec107;
+  padding: 0 10px;
 }
-.about{
-  border: solid 1px #A52260;
-}
-.login{
- border: solid 1px #A52260;
- box-sizing:border-box;
- width:100%;
-}
-.logop {
-  width: 25%;
-  vertical-align: middle;
-  float: left;
-  height: 100%;
+.title{
+	font-size: 40px;
+	font-weight: 700;
+	text-align: center;
+	padding: 20px 0px 0px 0px;
 }
 
-.myTitle {
-  display: flex;
-  color: white;
+.wrapper{
+  max-width: 1000px;
+  width: 100%;
+  background: #fec107;
+  margin: 20px auto;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
+  padding: 30px;
+}
+
+.wrapper .title{
   font-size: 30px;
-  font-style: italic;
-  padding-left: 3%;
- padding-top:1%;
-  font-family: "Times New Roman", Times, serif;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
 }
 
-  </style>
+.wrapper .form{
+  width: 100%;
+}
 
+.wrapper .form .inputfield{
+  margin-bottom: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.wrapper .form .inputfield label{
+   width: 200px;
+   color: black;
+   margin-right: 10px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.wrapper .form .inputfield .input{
+  width: 100%;
+  outline: none;
+  border: 1px solid #d5dbd9;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px 10px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.wrapper .form .inputfield .custom_select{
+  position: relative;
+  width: 100%;
+  height: 37px;
+}
+
+.wrapper .form .inputfield .custom_select:before{
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  border: 8px solid;
+  border-color: #d5dbd9 transparent transparent transparent;
+  pointer-events: none;
+}
+
+.wrapper .form .inputfield .custom_select select{
+  -webkit-appearance: none;
+  -moz-appearance:   none;
+  appearance:        none;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  border: 0px;
+  padding: 8px 10px;
+  font-size: 15px;
+  font-weight: 700;
+  border: 1px solid #d5dbd9;
+  border-radius: 3px;
+}
+
+
+.wrapper .form .inputfield .input:focus,
+.wrapper .form .inputfield .textarea:focus,
+.wrapper .form .inputfield .custom_select select:focus{
+  border: 1px solid #fec107;
+}
+
+.wrapper .form .inputfield .btn{
+  width: 100%;
+   padding: 10px 10px;
+  font-size: 20px; 
+  border: 0px;
+  background: white;
+  cursor: pointer;
+  border-radius: 2px;
+  outline: none;
+}
+
+.wrapper .form .inputfield .btn:hover{
+  background: #ffd658;
+}
+
+.wrapper .form .inputfield:last-child{
+  margin-bottom: 0;
+}
+
+@media (max-width:420px) {
+  .wrapper .form .inputfield{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .wrapper .form .inputfield label{
+    margin-bottom: 5px;
+  }
+  .wrapper .form .inputfield.terms{
+    flex-direction: row;
+  }
+}
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-height: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+  .wrapper{
+   max-width: 900px;
+  width: 100%;
+  
+  }
+  .wrapper .form .inputfield{
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+  .wrapper .form{
+  width: 100%;
+}
+.wrapper .form .inputfield{
+	display: flex;
+	align-items: center;
+
+  }
+  .wrapper .form .inputfield label{
+  
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  .wrapper .form .inputfield .input{
+  padding: 20px 5px;
+  }
+  .wrapper .form .inputfield .custom_select{
+  height: 60px;
+  }
+  
+  .wrapper .form .inputfield.terms{
+    flex-direction: row;
+  }
+  
+  }
+@media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-height: 1366px) 
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+  .wrapper{
+  max-width: 1000px;
+  width: 100%;
+  
+  }
+  .wrapper .form .inputfield{
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+  .wrapper .form{
+  max-width: 1000px;
+  width: 100%;
+}
+.wrapper .form .inputfield{
+	display: flex;
+	align-items: center;
+
+  }
+  .wrapper .form .inputfield label{
+  
+    font-size: 22px;
+    margin-bottom: 5px;
+  }
+  .wrapper .form .inputfield .input{
+  padding: 35px 20px;
+  }
+  .wrapper .form .inputfield .custom_select{
+  height: 60px;
+  }
+  .wrapper .form .inputfield .custom_select option{
+  width: auto;
+  }
+  .wrapper .form .inputfield.terms{
+    flex-direction: row;
+  }
+  }
+</style>
+<form onsubmit="return verifyAge()"  action="{{url_for('predict')}}"method="post">
 </head>
 
 <body>
+<div class="title">LIVER DISEASE PREDICTION</div> 
+<form  action="{{ url_for('predict')}}"method="post">
 
-  <!-- Show Indian AI Hospital banner-->
-  
-   <header>
-    <article class="heading">
-      <img class="logop" src="static/image.jpg" alt="logo">
-      <h1 class="myTitle">LIVER DISEASE PREDICTION</h1>
-    </article>
-  </header>
-
- <div class="login">
-	
-    <!-- Get input for predict the cancer -->
-    <center>
-    <form action="{{ url_for('predict')}}"method="post">
-        <h1>Enter the value of Liver Disease Features </h1>
-        
-    	<input type="text" name="Age" placeholder="Age" required="required" /><br><br>
-        <input type="text" name="Gender" placeholder="Gender" required="required" /><br><br>
-        <input type="text" name="Total Bilirubin" placeholder="Total Bilirubin" required="required" /><br><br>
-		<input type="text" name="Direct Bilirubin" placeholder="Direct Bilirubin" required="required" /><br>
-		<br>
-    	<input type="text" name="Alkaline Phosphotase" placeholder="Alkaline Phosphotase" required="required" /><br><br>
-        <input type="text" name="Alamine Aminotransferase" placeholder="Alamine Aminotransferase" required="required" /><br><br>
-		<input type="text" name="Aspartate Aminotransferase" placeholder="Aspartate Aminotransferase" required="required" /><br><br>
-    	<input type="text" name="Total rotiens" placeholder="Total Protiens" required="required" /><br><br>
-        <input type="text" name="Albumin" placeholder="Albumin" required="required" /><br><br>
-		<input type="text" name="Albumin and Globulin Ratio" placeholder="Albumin and Globulin Ratio" required="required" /><br><br>
+<div class="wrapper">
+<div class="title">Enter Details</div>
+<div class="form">
+					<div class="inputfield">
+					<label>Gender</label>
+					<div class="custom_select">
+ 					<select id="sex" name="sex">
+					<option value="0">0</option>
+  					<option value="1">1</option>
+					</select></div></div>
+					
+					<div class="inputfield">
+					<label>Age</label>
+					<input class="input" id="age" type="number" name="age" placeholder="age,1,100" min="1" max="100" required="required"/>
+					</div>
+					
+					<div class="inputfield">
+					<label>Total Bilirubin</label>
+					<input class="input" id="Total Bilirubin" type="number" name="Total Bilirubin" placeholder="Total Bilirubin,1,75" min="1" max="75" required="required"/>
+					</div>
+					
+					<div class="inputfield">
+					<label>Direct Bilirubin</label>
+					<input class="input" id="Direct Bilirubin" type="number" name="Direct Bilirubin" placeholder="Direct Bilirubin,3.0,20.0" min="3.0" max="20.0" required="required"/>
+					</div>
+					
+					<div class="inputfield">
+					<label>Alkaline Phosphotase</label>
+					<input class="input" id="Alkaline Phosphotase" type="number" name="Alkaline Phosphotase" placeholder="Alkaline Phosphotase,100,2500" min="100" max="2500" required="required"/>
+					</div>
+					
+					<div class="inputfield">
+					<label>Alamine Aminotransferase</label>
+					<input class="input" id="Alamine Aminotransferase" type="number" name="Alamine Aminotransferase" placeholder="Alamine Aminotransferase,50,1500" min="50" max="1500" required="required"/>
+					</div>
+					
+					<div class="inputfield">
+					<label>Aspartate Aminotransferase</label>
+					<input class="input" id="Aspartate Aminotransferase" type="number" name="Aspartate Aminotransferase" placeholder="Aspartate Aminotransferase,200,1600" min="200" max="1600" required="required"/>
+					</div>
+					
+					<div class="inputfield">
+					<label>Total protiens</label>
+					<input class="input" id="Total protiens" type="number" name="Total protiens" placeholder="Total protiens,3,9" min="3" max="9" required="required"/>
+					</div>
+					
+					<div class="inputfield">
+					<label>Albumin</label>
+					<input class="input" id="Albumin" type="number" name="Albumin" placeholder="Albumin1,8" min="1" max="8" required="required"/>
+					</div>
+					
+					
+					<div class="inputfield">
+					<label>Albumin and Globulin Ratio</label>
+					<input class="input" id="Albumin and Globulin Ratio" type="number" name="Albumin and Globulin Ratio" placeholder="Albumin and Globulin Ratio,0.5,2.5" min="0.5" max="2.5" required="required"/>
+					</div>
+					
+					<div class="inputfield">
+					<button type="submit" value="Predict" class="btn"><strong>Predict</strong></button></a>
+					</div>
+					<h2 style="text-align:center;color:red;">{{ prediction_text }}</h1>
+					
+					
+					
 		
-    	
-        <br>
-        
-        
-        <!-- Show button -->
-        
-            <button type="submit" class="btn btn-primary btn-block btn-large"><strong>Predict Liver Disease</strong></button></a>
-        
-        
-    </form>
-    </center>
-   
-   <!-- Show predicted output using ML model --> 
-   <div>
-       <center>
-   <h1>{{ prediction_text }}</h1>
-       </center>
-   </div>
+		<p id="Age" class="paragraph"></p> 
+		<p id="Total Bilirubine" class="paragraph"></p>  
+		<p id="Direct Bilirubin" class="paragraph"></p>
+		<p id="Alkaline Phosphotase" class="paragraph"></p>
+		<p id="Alamine Aminotransferase" class="paragraph"></p>
+		<p id="Aspartate Aminotransferase" class="paragraph"></p>
+		<p id="Total protiens" class="paragraph"></p>
+		<p id="Albumin" class="paragraph"></p>
+		<p id="Albumin and Globulin Ratio" class="paragraph"></p>
 
- </div>
+		
+		</div>
+		</div>
+	</form>
+	
+	
+<script>
+function verifyAge() {
+  let x = document.getElementById("age").value;
+  let e = document.getElementById("age")
+
+  let y = document.getElementById("Total Bilirubin").value;
+  let f = document.getElementById("Total Bilirubin");
+
+  let z = document.getElementById("Direct Bilirubin").value;
+  let g = document.getElementById("Direct Bilirubin");
+
+  let a = document.getElementById("Alkaline Phosphotase").value;
+  let h = document.getElementById("Alkaline Phosphotase");
+
+  let b = document.getElementById("Alamine Aminotransferase").value;
+  let i = document.getElementById("Alamine Aminotransferase");
+
+  let c = document.getElementById("Aspartate Aminotransferase").value;
+  let j = document.getElementById("Aspartate Aminotransferase");
+
+  let d = document.getElementById("Total protiens").value;
+  let k = document.getElementById("Total protiens");
+  
+  let l = document.getElementById("Albumin").value;
+  let n = document.getElementById("Albumin")
+  
+  let m = document.getElementById("Albumin and Globulin Ratio").value;
+  let o = document.getElementById("Albumin and Globulin Ratio")
+  
+  if (isNaN(x) || x < 1 || x > 100) {
+	alert("age must 1 to 100");
+	e.style.border="solid red 3px";
+	return false;
+  } 
+  
+  else if(isNaN(y) || y < 1 || y > 75) {
+	alert("Total Bilirubine must 1 to 75");
+	f.style.border="solid red 3px";
+	return false;
+  } 
+  else if (isNaN(z) || z < 3.0 || z > 20.0) {
+   alert("Direct Bilirubin must 3.0 to 20.0");
+   g.style.border="solid red 3px";
+	return false;
+  } 
+
+  else if (isNaN(a) || a < 100 || a > 2500) {
+    alert("Alkaline Phosphotase must 100 to 2500");
+	h.style.border="solid red 3px";
+	return false;
+	
+  } 
+  else if (isNaN(b) || b < 50 || b > 1500) {
+    alert("Alamine Aminotransferase must 50 to 1500");
+	i.style.border="solid red 3px";
+	return false;
+	
+  } 
+
+ else if (isNaN(c) || c < 200 || c > 1600) {
+    alert("Aspartate Aminotransferase must 200 to 1600");
+	j.style.border="solid red 3px";
+	return false;
+	
+  } 
+ 
+  else if (isNaN(d) || d < 3 || d > 9) {
+  	alert("Total protiens must 3 to 9");
+	k.style.border="solid red 3px";
+	return false;
+	
+  } 
+  else if (isNaN(l) || l < 1 || l > 8) {
+  	alert("Albumin must 1 to 8");
+	n.style.border="solid red 3px";
+	return false;
+	
+  } 
+  else if (isNaN(m) || m < 0.5 || m > 2.5) {
+  	alert("Albumin and Globulin Ratio must 0.5 to 2.5");
+	o.style.border="solid red 3px";
+	return false;
+	
+  } 
+  else{
+	return true;
+  }
+  
+ 
+
+}
+</script>
 
 </body>
 </html>
+					
