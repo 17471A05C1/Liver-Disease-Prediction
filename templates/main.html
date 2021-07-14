@@ -15,7 +15,7 @@
   font-family: 'Montserrat', sans-serif;
 }
 body{
-  background: #fec107;
+  background: rgb(255, 89, 35);
   padding: 0 10px;
 }
 .title{
@@ -23,12 +23,13 @@ body{
 	font-weight: 700;
 	text-align: center;
 	padding: 20px 0px 0px 0px;
+	
 }
 
 .wrapper{
   max-width: 1000px;
   width: 100%;
-  background: #fec107;
+  background: rgb(255, 89, 35);
   margin: 20px auto;
   box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
   padding: 30px;
@@ -38,7 +39,7 @@ body{
   font-size: 30px;
   font-weight: 700;
   margin-bottom: 25px;
-  color: white;
+  color: black;
   text-transform: uppercase;
   text-align: center;
 }
@@ -123,7 +124,7 @@ body{
 }
 
 .wrapper .form .inputfield .btn:hover{
-  background: #ffd658;
+  background: #175454;
 }
 
 .wrapper .form .inputfield:last-child{
@@ -253,7 +254,7 @@ body{
 					
 					<div class="inputfield">
 					<label>Direct Bilirubin</label>
-					<input class="input" id="Direct Bilirubin" type="number" name="Direct Bilirubin" placeholder="Direct Bilirubin,3.0,20.0" min="3.0" max="20.0" required="required"/>
+					<input class="input" id="Direct Bilirubin" type="number" name="Direct Bilirubin" placeholder="Direct Bilirubin,3,20" min="3" max="20" required="required"/>
 					</div>
 					
 					<div class="inputfield">
@@ -262,12 +263,12 @@ body{
 					</div>
 					
 					<div class="inputfield">
-					<label>Alamine Aminotransferase</label>
+					<label>ALA</label>
 					<input class="input" id="Alamine Aminotransferase" type="number" name="Alamine Aminotransferase" placeholder="Alamine Aminotransferase,50,1500" min="50" max="1500" required="required"/>
 					</div>
 					
 					<div class="inputfield">
-					<label>Aspartate Aminotransferase</label>
+					<label>ASA</label>
 					<input class="input" id="Aspartate Aminotransferase" type="number" name="Aspartate Aminotransferase" placeholder="Aspartate Aminotransferase,200,1600" min="200" max="1600" required="required"/>
 					</div>
 					
@@ -284,13 +285,13 @@ body{
 					
 					<div class="inputfield">
 					<label>Albumin and Globulin Ratio</label>
-					<input class="input" id="Albumin and Globulin Ratio" type="number" name="Albumin and Globulin Ratio" placeholder="Albumin and Globulin Ratio,0.5,2.5" min="0.5" max="2.5" required="required"/>
+					<input class="input" id="Albumin and Globulin Ratio" type="number" name="Albumin and Globulin Ratio" placeholder="Albumin and Globulin Ratio,0,3" min="0" max="3" required="required"/>
 					</div>
 					
 					<div class="inputfield">
 					<button type="submit" value="Predict" class="btn"><strong>Predict</strong></button></a>
 					</div>
-					<h2 style="text-align:center;color:red;">{{ prediction_text }}</h1>
+					<h2 style="text-align:center;color:rgb(0, 89, 35);">{{ prediction_text }}</h1>
 					
 					
 					
@@ -351,8 +352,8 @@ function verifyAge() {
 	f.style.border="solid red 3px";
 	return false;
   } 
-  else if (isNaN(z) || z < 3.0 || z > 20.0) {
-   alert("Direct Bilirubin must 3.0 to 20.0");
+  else if (isNaN(z) || z < 3 || z > 20) {
+   alert("Direct Bilirubin must 3 to 20");
    g.style.border="solid red 3px";
 	return false;
   } 
@@ -389,8 +390,8 @@ function verifyAge() {
 	return false;
 	
   } 
-  else if (isNaN(m) || m < 0.5 || m > 2.5) {
-  	alert("Albumin and Globulin Ratio must 0.5 to 2.5");
+  else if (isNaN(m) || m < 0 || m > 3) {
+  	alert("Albumin and Globulin Ratio must 0 to 3");
 	o.style.border="solid red 3px";
 	return false;
 	
