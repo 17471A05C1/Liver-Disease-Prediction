@@ -24,12 +24,10 @@ def predict():
     
     df = pd.DataFrame(features_value, columns=features_name)
     output = model.predict(df)
-    print(output)
-    
-    if input_features[2]>=5.2 and input_features[3]>=5.2:
+    if output==1:
         res_val = "has liver disease"
-    else:
-        res_val = "has not liver disease"
+    elif output==2:
+        res_val = " has not liver disease "
 
     return render_template('main.html', prediction_text='Patient {}'.format(res_val))
 
