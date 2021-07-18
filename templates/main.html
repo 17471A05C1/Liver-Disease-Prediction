@@ -244,8 +244,8 @@ body{
 					<label>Gender</label>
 					<div class="custom_select">
  					<select id="sex" name="sex" placeholder="male=0,female=1">
-					<option value="none" selected disabled hidden>
-          0 for male, 1 for female
+					<optgroup label="0 for male 1 for female"></optgroup>
+					
       </option>
 				
 					<option value="0">0</option>
@@ -317,85 +317,8 @@ body{
 		</div>
 		</div>
 	</form>
-	<script>
-function verifyAge() {
-  
-  let x = document.getElementById("Total Bilirubin").value;
-  let f = document.getElementById("Total Bilirubin")
-
-  let y = document.getElementById("cigsPerDay").value;
-  let g = document.getElementById("cigsPerDay");
-
-  let z = document.getElementById("totChol").value;
-  let h = document.getElementById("totChol");
-
-  let a = document.getElementById("sysBP").value;
-  let i = document.getElementById("sysBP");
-
-  let b = document.getElementById("diaBP").value;
-  let j = document.getElementById("diaBP");
-
-  let c = document.getElementById("BMI").value;
-  let k = document.getElementById("BMI");
-
-  let d = document.getElementById("heartRate").value;
-  let l = document.getElementById("heartRate");
-
-  let e = document.getElementById("glucose").value;
-  let m = document.getElementById("glucose");
-  
-  if (isNaN(x) || x < 0.0 || x > 15.0) {
-    alert("age must be 1 to 70");
-	f.style.border="solid white 3px";
-	return false;
-  } 
-  else if (isNaN(y) || y < 0 || y > 65) {
-    alert("cigsPerDay must be 0 to 65");
-	g.style.border="solid white 3px";
-	return false;
-  } 
-  else if (isNaN(z) || z < 100 || z > 450) {
-    alert("totChol must be 100 to 450");
-	h.style.border="solid white 3px";
-	return false;
 	
-  } 
-  else if (isNaN(a) || a < 50 || a > 250) {
-    alert("sysBP must be 50 to 250");
-	i.style.border="solid white 3px";
-	return false;
-	
-  } 
-  else if (isNaN(b) || b < 50 || b > 140) {
-    alert("diaBP must be 50 to 140");
-	j.style.border="solid white 3px";
-	return false;
-	
-  } 
-  else if (isNaN(c) || c < 15 || c > 45) {
-    alert("BMI must be 15 to 45");
-	k.style.border="solid white 3px";
-	return false;
-	
-  } 
-  else if (isNaN(d) || d < 45 || d > 140) {
-    alert("heartRate must be 45 to 140");
-	l.style.border="solid white 3px";
-	return false;
-	
-  } 
-  else if (isNaN(e) || e < 50 || e > 400) {
-    alert("glucose must be 50 to 400");
-	m.style.border="solid white 3px";
-	return false;
-	
-  } 
-  else{
-  return true;
-  }
-  
-}
-</script>
+
 
 </body>
 </html>
