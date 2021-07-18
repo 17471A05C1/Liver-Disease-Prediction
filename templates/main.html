@@ -256,17 +256,17 @@ body{
 					
 					<div class="inputfield">
 					<label>Total Bilirubin</label>
-					<input class="input" id="Total_Bilirubin" type="float" name="Total Bilirubin" placeholder="Total Bilirubin,0.0,15.0" min="0.0" max="15.0" required="required"/>
+					<input class="input" id="Total_Bilirubin" type="number" step="0.01" name="Total Bilirubin" placeholder="Total Bilirubin,0.0,15.0" min="0.0" max="15.0" required="required"/>
 					</div>
 					
 					<div class="inputfield">
 					<label>Direct Bilirubin</label>
-					<input class="input" id="Direct_Bilirubin" type="float" name="Direct Bilirubin" placeholder="Direct Bilirubin,0.0,10.0" min="0.0" max="10.0" required="required"/>
+					<input class="input" id="Direct_Bilirubin" type="number" step="0.01" name="Direct Bilirubin" placeholder="Direct Bilirubin,0.0,10.0" min="0.0" max="10.0" required="required"/>
 					</div>
 					
 					<div class="inputfield">
 					<label>Alkaline Phosphotase</label>
-					<input class="input" id="Alkaline_Phosphotase" type="number" name="Alkaline Phosphotase" placeholder="Alkaline Phosphotase,50,1500" min="50" max="1500" required="required"/>
+					<input class="input" id="Alkaline_Phosphotase" type="number"  name="Alkaline Phosphotase" placeholder="Alkaline Phosphotase,50,1500" min="50" max="1500" required="required"/>
 					</div>
 					
 					<div class="inputfield">
@@ -281,18 +281,18 @@ body{
 					
 					<div class="inputfield">
 					<label>Total protiens</label>
-					<input class="input" id="Total_protiens" type="float" name="Total protiens" placeholder="Total protiens,0.5 to 10.0" min="0.5" max="10.0" required="required"/>
+					<input class="input" id="Total_protiens" type="number" step="0.01" name="Total protiens" placeholder="Total protiens,0.5 to 10.0" min="0.5" max="10.0" required="required"/>
 					</div>
 					
 					<div class="inputfield">
 					<label>Albumin</label>
-					<input class="input" id="Albumin" type="float" name="Albumin" placeholder="Albumin1,0.5 to 6.0" min="0.5" max="6.0" required="required"/>
+					<input class="input" id="Albumin" type="number" step="0.01" name="Albumin" placeholder="Albumin1,0.5 to 6.0" min="0.5" max="6.0" required="required"/>
 					</div>
 					
 					
 					<div class="inputfield">
 					<label>Albumin and Globulin Ratio</label>
-					<input class="input" id="Albumin_and_Globulin Ratio" type="float" name="Albumin and Globulin Ratio" placeholder="Albumin and Globulin Ratio,0.5,10.0" min="0.5" max="10.0" required="required"/>
+					<input class="input" id="Albumin_and_Globulin Ratio" type="number" step="0.01" name="Albumin and Globulin Ratio" placeholder="Albumin and Globulin Ratio,0.5,10.0" min="0.5" max="10.0" required="required"/>
 					</div>
 					
 					<div class="inputfield">
@@ -317,7 +317,85 @@ body{
 		</div>
 		</div>
 	</form>
+	<script>
+function verifyAge() {
+  
+  let x = document.getElementById("Total Bilirubin").value;
+  let f = document.getElementById("Total Bilirubin")
+
+  let y = document.getElementById("cigsPerDay").value;
+  let g = document.getElementById("cigsPerDay");
+
+  let z = document.getElementById("totChol").value;
+  let h = document.getElementById("totChol");
+
+  let a = document.getElementById("sysBP").value;
+  let i = document.getElementById("sysBP");
+
+  let b = document.getElementById("diaBP").value;
+  let j = document.getElementById("diaBP");
+
+  let c = document.getElementById("BMI").value;
+  let k = document.getElementById("BMI");
+
+  let d = document.getElementById("heartRate").value;
+  let l = document.getElementById("heartRate");
+
+  let e = document.getElementById("glucose").value;
+  let m = document.getElementById("glucose");
+  
+  if (isNaN(x) || x < 0.0 || x > 15.0) {
+    alert("age must be 1 to 70");
+	f.style.border="solid white 3px";
+	return false;
+  } 
+  else if (isNaN(y) || y < 0 || y > 65) {
+    alert("cigsPerDay must be 0 to 65");
+	g.style.border="solid white 3px";
+	return false;
+  } 
+  else if (isNaN(z) || z < 100 || z > 450) {
+    alert("totChol must be 100 to 450");
+	h.style.border="solid white 3px";
+	return false;
 	
+  } 
+  else if (isNaN(a) || a < 50 || a > 250) {
+    alert("sysBP must be 50 to 250");
+	i.style.border="solid white 3px";
+	return false;
+	
+  } 
+  else if (isNaN(b) || b < 50 || b > 140) {
+    alert("diaBP must be 50 to 140");
+	j.style.border="solid white 3px";
+	return false;
+	
+  } 
+  else if (isNaN(c) || c < 15 || c > 45) {
+    alert("BMI must be 15 to 45");
+	k.style.border="solid white 3px";
+	return false;
+	
+  } 
+  else if (isNaN(d) || d < 45 || d > 140) {
+    alert("heartRate must be 45 to 140");
+	l.style.border="solid white 3px";
+	return false;
+	
+  } 
+  else if (isNaN(e) || e < 50 || e > 400) {
+    alert("glucose must be 50 to 400");
+	m.style.border="solid white 3px";
+	return false;
+	
+  } 
+  else{
+  return true;
+  }
+  
+}
+</script>
 
 </body>
 </html>
