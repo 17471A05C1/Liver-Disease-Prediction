@@ -237,13 +237,17 @@ body{
 <div class="form">
 <div class="inputfield">
 					<label>Age</label>
-					<input class="input" id="Age" type="number" name="age" placeholder="age,1,100" min="1" max="100" required="required"/>
+					<input class="input" id="Age" type="number" name="age" placeholder="1 to 100" min="1" max="100" required="required"/>
 					</div>
 					
 					<div class="inputfield">
 					<label>Gender</label>
 					<div class="custom_select">
- 					<select id="sex" name="sex">
+ 					<select id="sex" name="sex" placeholder="male=0,female=1">
+					<option value="none" selected disabled hidden>
+          0 for male, 1 for female
+      </option>
+				
 					<option value="0">0</option>
   					<option value="1">1</option>
 					</select></div></div>
